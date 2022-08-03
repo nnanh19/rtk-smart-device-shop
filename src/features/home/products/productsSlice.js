@@ -9,7 +9,7 @@ const initialState = {
 export const fetchProductsAsync = createAsyncThunk(
     'products/fetchProducts',
     async () => {
-        const data= await getProducts()
+        const data = await getProducts()
         return data.data
     }
 )

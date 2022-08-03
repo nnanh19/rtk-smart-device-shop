@@ -1,13 +1,11 @@
 import React from "react";
 import Banner from "./banner/Banner";
 import Catrgories from "./categories/Catrgories";
-import Header from "../header/Header";
 import Products from "./products/Products";
 
 const Home = () => {
   return (
     <div className="">
-      <Header />
       <div
         className="
         mb-3

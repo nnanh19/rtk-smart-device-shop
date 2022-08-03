@@ -4,15 +4,19 @@ import { fetchProductsAsync, setMore } from "./productsSlice";
 import { useSelector } from "react-redux/es/exports";
 import { listProductSelector } from "./selectors";
 import { MdNavigateNext } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
-  const {products, status, more} = useSelector(listProductSelector);
+
+  const navigate = useNavigate()
+
+  const {products, more} = useSelector(listProductSelector);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProductsAsync())
-  }, [])
+  }, [dispatch])
 
   return (
     <div
@@ -25,12 +29,12 @@ const Products = () => {
       <div className="flex flex-row flex-wrap justify-start gap-6">
         {products?.map((product, index) => {
           return (
-              <div className="flex flex-col" key={index}>
-                <div className="flex justify-center">
-                  <img className="max-w-[160px] max-h-[160px]" src={product?.image} alt=""/>
+              <div className="flex flex-col" key={index} >
+                <div className="flex justify-center cursor-pointer">
+                  <img onClick={() => navigate(`/chi-tiet-san-pham/${product.id}`)} className="max-w-[160px] max-h-[160px]" src={product?.image} alt="" />
                 </div>
-                <div className="text-center">
-                  <p className="text-[14px] text-[#444444]">{product?.name}</p>
+                <div className="text-center cursor-pointer">
+                  <p onClick={() => navigate(`/chi-tiet-san-pham/${product.id}`)} className="text-[14px] text-[#444444]">{product?.name}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-xs">{product?.price}</span>

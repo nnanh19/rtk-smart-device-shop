@@ -9,13 +9,13 @@ const Header = () => {
     <div className="bg-[#D70018]">
       <div
         className="
-            mx-auto 
-            p-1
+            py-1
             flex
             flex-row
             items-center
-            justify-evenly
+            justify-around
             max-w-[1536px]
+            mx-auto
             mb-3
             "
       >

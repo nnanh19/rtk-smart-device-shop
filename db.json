@@ -1,9 +1,106 @@
 {
   "products": [
     {
+      "id": 5,
+      "name": "Samsung Ios",
+      "price": 12000,
+      "promotion": 50,
+      "categoryId": 1,
+      "outstandingFeatures": "a",
+      "longDescription": "bcd",
+      "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109867/g6m8xeb26cxmpplvsqyj.jpg",
+      "status": true
+    },
+    {
+      "id": 6,
+      "name": "Oppo IOSS",
+      "price": 12000,
+      "promotion": 50,
+      "categoryId": 2,
+      "outstandingFeatures": "a",
+      "longDescription": "bcd",
+      "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109880/ahuaqqjenuo4kgw2q3w2.jpg",
+      "status": true
+    },
+    {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Iphone11",
+      "price": 12000,
+      "promotion": 52,
+      "categoryId": 1,
+      "outstandingFeatures": "Nổi bật",
+      "longDescription": "bcd",
+      "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109833/sqfgtyuospcrwviuwph1.jpg",
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Iphone Androi",
+      "price": 12000,
+      "promotion": 20,
+      "categoryId": 2,
+      "outstandingFeatures": "abcd",
+      "longDescription": "babcd",
+      "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109845/si4plnvugnsj1ytibejw.jpg",
+      "status": false
+    },
+    {
+      "id": 7,
+      "name": "Poco IOSS",
+      "price": 100000,
+      "promotion": 10,
+      "categoryId": 1,
+      "outstandingFeatures": "abcd",
+      "longDescription": "abcd",
+      "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109926/hokoxu7omx4gtxek77is.jpg",
+      "status": true
+    },
+    {
+      "id": 8,
+      "name": "Laptop Iphonn",
+      "price": 100000,
+      "promotion": 10,
+      "categoryId": 2,
+      "outstandingFeatures": "abcd",
+      "longDescription": "mô tả dài",
+      "shortDescription": "mô tả ngắn",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109897/oelaifcgahwyif5kpshb.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Điện thoại 19",
+      "price": 10000000,
+      "promotion": 10,
+      "categoryId": 1,
+      "outstandingFeatures": "Nổi bật",
+      "longDescription": "Dài",
+      "shortDescription": "Ngắn",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109910/ahrn44jxhf50hluyd0cl.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Không được phân loại",
+      "price": 100000,
+      "promotion": 10,
+      "categoryId": 1,
+      "outstandingFeatures": "NỔI BẬT",
+      "shortDescription": "MÔ TẢ NGẮN",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109915/shsvqsqdkokpsvq17dlj.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Điện thoại"
+    },
+    {
+      "id": 2,
+      "name": "Laptop"
     }
   ]
 }

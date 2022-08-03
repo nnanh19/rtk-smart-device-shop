@@ -3,7 +3,8 @@ import { getProducts } from "./productsApi";
 
 const initialState = {
     products: [],
-    status: 'idle'
+    status: 'idle',
+    more: true,
 }
 export const fetchProductsAsync = createAsyncThunk(
     'products/fetchProducts',
@@ -17,6 +18,9 @@ export const productSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
+        setMore: (state) => {
+            state.more = !state.more
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -30,5 +34,6 @@ export const productSlice = createSlice({
     }
 })
 
+export const  {setMore} = productSlice.actions
 
 export default productSlice.reducer

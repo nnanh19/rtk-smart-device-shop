@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductDetailAsync } from "./productdetailSlice";
 import { productDetailSelector } from "./selectors";
 import { AiOutlineStar, AiOutlineShoppingCart } from "react-icons/ai";
+import { addToCart } from "../cart/cartSlice";
 
 const ProductsDetail = () => {
   const navigate = useNavigate();
@@ -19,10 +20,10 @@ const ProductsDetail = () => {
     dispatch(fetchProductDetailAsync(id));
   }, [dispatch, id]);
 
-  useEffect(() => {});
 
   const handleAddToCart = (product) => {
-    console.log(product);
+    dispatch(addToCart(product))
+    navigate('/chi-tiet-san-pham/'+product.id)
   }
 
   return (

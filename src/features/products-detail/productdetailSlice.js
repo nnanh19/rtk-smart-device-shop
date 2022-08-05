@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getProduct } from "./productDetailApi";
 
-export const initialState = {
+const initialState = {
     loading: 'idle',
     product: {}
 }
@@ -14,7 +14,7 @@ export const fetchProductDetailAsync = createAsyncThunk(
     } 
 )
 
-export const productDetailSlice = createSlice({ 
+const productDetailSlice = createSlice({ 
     name: 'productsDetail',
     initialState,
     reducers: {

@@ -1,14 +1,23 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { BiMap } from "react-icons/bi";
 import { ImSearch } from "react-icons/im";
 import { BsClipboardCheck } from "react-icons/bs";
+import {useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
+import { cartSelector } from "../cart/selector";
 
 const Header = () => {
 
   const navigate = useNavigate()
 
+  const cart = useSelector(cartSelector)
+
+  
+  const cartLength= cart.length
+  console.log(cartLength);
+  
   return (
     <div className="bg-[#D70018]">
       <div
@@ -50,8 +59,10 @@ const Header = () => {
             <p className="text-xs">Tra cứu <br/> đơn hàng</p>
           </div>
           <div className="flex flex-row items-center text-white gap-1 cursor-pointer" onClick={() => navigate('gio-hang')}>
-            <AiOutlineShoppingCart className="text-2xl gap-1"/>
+            
+            {cartLength ? <BsFillCartCheckFill  className="text-2xl gap-1"/> : <AiOutlineShoppingCart  className="text-2xl gap-1"/>}
             <p className="text-xs">Giỏ <br/> hàng</p>
+            <p className="relative bottom-4 right-10">{cartLength}</p>
           </div>
         </div>
       </div>

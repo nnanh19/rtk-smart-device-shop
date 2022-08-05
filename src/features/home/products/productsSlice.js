@@ -20,7 +20,7 @@ export const productSlice = createSlice({
     reducers: {
         setMore: (state) => {
             state.more = !state.more
-        }
+        },
     },
     extraReducers: (builder) => {
         builder

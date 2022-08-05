@@ -21,6 +21,10 @@ const ProductsDetail = () => {
 
   useEffect(() => {});
 
+  const handleAddToCart = (product) => {
+    console.log(product);
+  }
+
   return (
     <div>
       <div className="shadow-md shadow-grey-500/50 h-10">
@@ -94,7 +98,7 @@ const ProductsDetail = () => {
               <div className="border border-[#FF3945] rounded-md p-2">
                 <AiOutlineShoppingCart className="text-2xl text-[#FF3945] " />
               </div>
-              <span className=" ml-3">
+              <span className=" ml-3" onClick={() => handleAddToCart(product)}>
                 Thêm vào <br /> giỏ hàng
               </span>
             </div>

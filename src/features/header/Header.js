@@ -3,8 +3,12 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMap } from "react-icons/bi";
 import { ImSearch } from "react-icons/im";
 import { BsClipboardCheck } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  const navigate = useNavigate()
+
   return (
     <div className="bg-[#D70018]">
       <div
@@ -45,7 +49,7 @@ const Header = () => {
             <BsClipboardCheck className="text-2xl"/>
             <p className="text-xs">Tra cứu <br/> đơn hàng</p>
           </div>
-          <div className="flex flex-row items-center text-white gap-1">
+          <div className="flex flex-row items-center text-white gap-1 cursor-pointer" onClick={() => navigate('gio-hang')}>
             <AiOutlineShoppingCart className="text-2xl gap-1"/>
             <p className="text-xs">Giỏ <br/> hàng</p>
           </div>

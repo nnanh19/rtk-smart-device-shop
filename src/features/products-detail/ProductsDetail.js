@@ -95,11 +95,11 @@ const ProductsDetail = () => {
             <button className="bg-[#FF3945] w-[233px] h-[48px] rounded-md text-white  cursor-pointer">
               Mua Ngay
             </button>
-            <div className="flex justify-start items-center ml-10  cursor-pointer">
+            <div className="flex justify-start items-center ml-10  cursor-pointer" onClick={() => handleAddToCart(product)}>
               <div className="border border-[#FF3945] rounded-md p-2">
                 <AiOutlineShoppingCart className="text-2xl text-[#FF3945] " />
               </div>
-              <span className=" ml-3" onClick={() => handleAddToCart(product)}>
+              <span className=" ml-3" >
                 Thêm vào <br /> giỏ hàng
               </span>
             </div>

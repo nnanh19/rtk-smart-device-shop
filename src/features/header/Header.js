@@ -15,8 +15,8 @@ const Header = () => {
   const cart = useSelector(cartSelector)
 
   
-  const cartLength= cart.length
-  console.log(cartLength);
+  const cartLength= cart.myCart.length
+  console.log(cart);
   
   return (
     <div className="bg-[#D70018]">

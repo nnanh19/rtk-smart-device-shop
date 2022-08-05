@@ -1,3 +1,4 @@
 export const cartSelector = ({cart}) => {
-    return cart.myCart
+    console.log(cart);
+    return cart
 }

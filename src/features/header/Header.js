@@ -16,12 +16,12 @@ const Header = () => {
 
   
   const cartLength= cart.myCart.length
-  console.log(cart);
   
   return (
     <div className="bg-[#D70018]">
       <div
         className="
+        
             py-1
             flex
             flex-row

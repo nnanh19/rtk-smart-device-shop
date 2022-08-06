@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      roboto: ['Roboto'],
+      heebo: ['Heebo'],
+    }
   },
   plugins: [],
 }

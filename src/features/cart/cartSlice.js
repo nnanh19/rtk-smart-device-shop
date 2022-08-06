@@ -7,6 +7,7 @@ const initialState = {
   status: 'idle'
 };
 
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -20,9 +21,9 @@ const cartSlice = createSlice({
           state.myCart.push(newCart)
         }
         state.temporaryTotal = state.myCart.reduce((init, prevPrice) => {
-           const temporaryTotal = init + prevPrice.price
-           return temporaryTotal
-        },0)
+          const temporaryTotal = init + (prevPrice.price * prevPrice.quantity)
+          return temporaryTotal
+       },0)
     },
     removeCart: (state, action) =>{
       state.myCart = state.myCart.filter(item => item.id !== action.payload.id)

@@ -1,12 +1,15 @@
 import React from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { BiMap } from "react-icons/bi";
 import { ImSearch } from "react-icons/im";
 import { BsClipboardCheck } from "react-icons/bs";
 import {useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
-import { cartSelector } from "../cart/selector";
+import { cartSelector } from "../../cart/selector";
+import { VscSignIn } from "react-icons/vsc";
+
+
 
 const Header = () => {
 
@@ -33,10 +36,11 @@ const Header = () => {
             "
       >
         <div>
-          <img
+          <img 
             src="https://th.bing.com/th/id/OIP.msJ5-X_TC957GXCRltCiPAHaHa?pid=ImgDet&rs=1"
             alt="logo"
-            className="w-16"
+            className="w-16 cursor-pointer"
+            onClick={() =>  navigate('/')}
           />
         </div>
         <div className="flex items-center bg-white rounded-full w-[500px] h-[34px]">
@@ -63,6 +67,16 @@ const Header = () => {
             {cartLength ? <BsFillCartCheckFill  className="text-2xl gap-1"/> : <AiOutlineShoppingCart  className="text-2xl gap-1"/>}
             <p className="text-xs">Giỏ <br/> hàng</p>
             <p className="relative bottom-4 right-10">{cartLength}</p>
+          </div>
+          <div>
+            <div className="flex space-x-1 cursor-pointer group">
+              <AiOutlineUserAdd className="text-white group-hover:text-yellow-500"/>
+              <p className="text-xs text-white cursor-pointer group-hover:text-yellow-500" onClick={() => navigate('/dang-ky')}>Đăng ký</p>
+            </div>
+            <div className="flex space-x-1 cursor-pointer group">
+              <VscSignIn className="text-white group-hover:text-yellow-500"/>
+              <p className="text-xs text-white group-hover:text-yellow-500" onClick={() => navigate('/dang-nhap')}>Đăng nhập</p>
+            </div>
           </div>
         </div>
       </div>

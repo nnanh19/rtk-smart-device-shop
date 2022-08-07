@@ -7,7 +7,8 @@ import Cart from './features/cart/Cart';
 import SiteLayout from './features/layout/SiteLayout';
 import Signup from './features/users/signup/Signup';
 import Signin from './features/users/signin/Signin';
-
+import AdminLayout from './features/layout/AdminLayout';
+import { IsAdmin } from './utils/auth';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             <Route path='gio-hang' element={<Cart />}/>
             <Route path='dang-ky' element={<Signup />}/>
             <Route path='dang-nhap' element={<Signin />}/>
+          </Route>
+          <Route path='/admin' element={<AdminLayout />} >
+            <Route index element={<IsAdmin> <ProductsDetail/> </IsAdmin>}/>
           </Route>
         </Routes>
     </div>

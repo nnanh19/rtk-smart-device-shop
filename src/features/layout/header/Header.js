@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineUserAdd, AiOutlineUser } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { BiMap } from "react-icons/bi";
 import { ImSearch } from "react-icons/im";
@@ -7,7 +7,7 @@ import { BsClipboardCheck } from "react-icons/bs";
 import {useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { cartSelector } from "../../cart/selector";
-import { VscSignIn } from "react-icons/vsc";
+import { VscSignIn, VscSignOut} from "react-icons/vsc";
 
 
 
@@ -17,8 +17,15 @@ const Header = () => {
 
   const cart = useSelector(cartSelector)
 
+  const user = JSON.parse(localStorage.getItem('user'))
+
   
   const cartLength= cart.myCart.length
+
+  const handleLogout = () => {
+    localStorage.removeItem('user')
+    navigate('/dang-nhap')
+  }
   
   return (
     <div className="bg-[#D70018]">
@@ -68,6 +75,19 @@ const Header = () => {
             <p className="text-xs">Giỏ <br/> hàng</p>
             <p className="relative bottom-4 right-10">{cartLength}</p>
           </div>
+          {user 
+          ? 
+          <div>
+            <div className="flex space-x-1 cursor-pointer group">
+              <AiOutlineUser className="text-white group-hover:text-yellow-500"/>
+              <p className="text-xs text-white cursor-pointer group-hover:text-yellow-500">{user.email}</p>
+            </div>
+            <div className="flex space-x-1 cursor-pointer group">
+              <VscSignOut className="text-white group-hover:text-yellow-500"/>
+              <p className="text-xs text-white group-hover:text-yellow-500" onClick={() => handleLogout()}>Đăng xuất</p>
+            </div>
+          </div>
+          :
           <div>
             <div className="flex space-x-1 cursor-pointer group">
               <AiOutlineUserAdd className="text-white group-hover:text-yellow-500"/>
@@ -78,6 +98,7 @@ const Header = () => {
               <p className="text-xs text-white group-hover:text-yellow-500" onClick={() => navigate('/dang-nhap')}>Đăng nhập</p>
             </div>
           </div>
+          }
         </div>
       </div>
     </div>

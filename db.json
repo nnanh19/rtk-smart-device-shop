@@ -102,5 +102,13 @@
       "id": 2,
       "name": "Laptop"
     }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$VSYQvwXUEwJTcQQZfx3S0O59vYYa7roYwTLFV0PWf8ScuCPJW4u9W",
+      "phone": "0971145489",
+      "id": 1
+    }
   ]
 }

@@ -2,12 +2,12 @@ import {useForm} from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { signinSelector } from '../selector'
 import { changeStatusSignIn, fetchSigninAsync } from '../usersSlice'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { notify } from '../../../utils/toastr';
 
 const Signin = () => {
-  const notify = (noti) => toast(noti)
+  
 
   const navigate = useNavigate()
 
@@ -22,7 +22,11 @@ const Signin = () => {
   (function checkLogin() {
     if(user.statusSignin === 'success') {
       notify('Đăng nhập thành công!')
-      navigate(+1)
+      if(user.user.id=== 1){
+        navigate('/admin')
+      }else{
+        navigate(-1)
+      }
       localStorage.setItem('user', JSON.stringify(user.user))
       dispatch(changeStatusSignIn('idle'))
     }else if(user.statusSignin === 'failure'){

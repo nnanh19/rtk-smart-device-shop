@@ -8,10 +8,9 @@ export const isAuth = () =>{
 
 export const IsAdmin = ({children}) => {
     const user = isAuth()
-    console.log(user.id);
     if(user.id === 1){
         return children
     }else{
-        return <Navigate to={-1}/>
+        return <Navigate to='/dang-nhap'/>   
     }
 }

@@ -5,4 +5,9 @@ const getProduct = (id) => {
     return instance.get(url)
 }
 
-export {getProduct}
+const getProductByCategoryId = (id) => {
+    const url = `products?categoryId=${id}`
+    return instance.get(url)
+}
+
+export {getProduct, getProductByCategoryId}

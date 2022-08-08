@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiOutlineShoppingCart, AiOutlineUserAdd, AiOutlineUser } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { BiMap } from "react-icons/bi";
@@ -6,7 +6,7 @@ import { ImSearch } from "react-icons/im";
 import { BsClipboardCheck } from "react-icons/bs";
 import {useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
-import { cartSelector } from "../../cart/selector";
+import { cartSelector } from "../../../cart/selector";
 import { VscSignIn, VscSignOut} from "react-icons/vsc";
 
 
@@ -26,12 +26,23 @@ const Header = () => {
     localStorage.removeItem('user')
     navigate('/dang-nhap')
   }
+  useEffect(() => {
+    
+  }, [])
   
+  const handleSearchChange = (e) => {
+    console.log(e.target.value);
+  }
+  const handleSearchEnter = (e) => {
+    if(e.keyCode === 13){
+      console.log(e.target.value);
+    }
+  }
+
   return (
     <div className="bg-[#D70018]">
       <div
         className="
-        
             py-1
             flex
             flex-row
@@ -54,8 +65,13 @@ const Header = () => {
           <div className="text-white">
             <ImSearch className="text-black font-bold ml-2"/>
           </div>
-          <input className="outline-none ml-2 w-[450px]"/>
+          <input className="outline-none ml-2 w-[450px]" onKeyDown={(e) => handleSearchEnter(e)} onChange={(e) => handleSearchChange(e)}/>
         </div>
+        {/* <div className="absolute top-[53px] ">
+          <div className="h-[500px] w-[500px] bg-white rounded-xl">
+
+          </div>
+        </div> */}
         <div className="flex items-center gap-5">
           <div className="flex flex-col text-white">
             <p className="text-xs">Gọi mua hàng</p>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProductDetailAsync } from "./productdetailSlice";
+import { fetchProductDetailAsync, fetchSameProductsAsync } from "./productdetailSlice";
 import { productDetailSelector } from "./selectors";
 import { AiOutlineStar, AiOutlineShoppingCart } from "react-icons/ai";
 import { addToCart } from "../cart/cartSlice";
@@ -10,15 +10,20 @@ const ProductsDetail = () => {
   const navigate = useNavigate();
 
   const data = useSelector(productDetailSelector);
+  const { product, sameProducts } = data.product;
+  console.log(sameProducts);
 
-  const { product } = data.product;
-
+  console.log(product.categoryId)
   const { id } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProductDetailAsync(id));
   }, [dispatch, id]);
+
+  useEffect(() => {
+    dispatch(fetchSameProductsAsync(id))
+  }, [dispatch, id]) 
 
 
   const handleAddToCart = (product) => {
@@ -110,86 +115,28 @@ const ProductsDetail = () => {
             <h3 className="text-[18px] uppercase">Sản phẩm cùng loại</h3>
           </div>
           <div className="flex gap-3">
-            <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px]">
-              <div>
-                <img className="max-w-[160px]" src={product.image} alt="" />
-              </div>
-              <div>
-                <p className="text-[#0A263C] leading-10">{product.name}</p>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-[14px] text-[#D70018]">
-                  {product.price}
-                </span>
-                <span className="text-[11px] text-[#707070]">
-                  {product.price}
-                </span>
-              </div>
-            </div>
-            <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px]">
-              <div>
-                <img className="max-w-[160px]" src={product.image} alt="" />
-              </div>
-              <div>
-                <p className="text-[#0A263C] leading-10">{product.name}</p>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-[14px] text-[#D70018]">
-                  {product.price}
-                </span>
-                <span className="text-[11px] text-[#707070]">
-                  {product.price}
-                </span>
-              </div>
-            </div>
-            <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px]">
-              <div>
-                <img className="max-w-[160px]" src={product.image} alt="" />
-              </div>
-              <div>
-                <p className="text-[#0A263C] leading-10">{product.name}</p>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-[14px] text-[#D70018]">
-                  {product.price}
-                </span>
-                <span className="text-[11px] text-[#707070]">
-                  {product.price}
-                </span>
-              </div>
-            </div>
-            <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px]">
-              <div>
-                <img className="max-w-[160px]" src={product.image} alt="" />
-              </div>
-              <div>
-                <p className="text-[#0A263C] leading-10">{product.name}</p>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-[14px] text-[#D70018]">
-                  {product.price}
-                </span>
-                <span className="text-[11px] text-[#707070]">
-                  {product.price}
-                </span>
-              </div>
-            </div>
-            <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px]">
-              <div>
-                <img className="max-w-[160px]" src={product.image} alt="" />
-              </div>
-              <div>
-                <p className="text-[#0A263C] leading-10">{product.name}</p>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-[14px] text-[#D70018]">
-                  {product.price}
-                </span>
-                <span className="text-[11px] text-[#707070]">
-                  {product.price}
-                </span>
-              </div>
-            </div>
+            {sameProducts?.map(product => {
+              return (
+                <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px]">
+                    <div>
+                      <img className="max-w-[160px]" src={product.image} alt="" />
+                    </div>
+                    <div>
+                      <p className="text-[#0A263C] leading-10">{product.name}</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="text-[14px] text-[#D70018]">
+                        {product.price}
+                      </span>
+                      <span className="text-[11px] text-[#707070]">
+                        {product.price}
+                      </span>
+                    </div>
+                </div>
+              )
+            })}
+            
+    
           </div>
         </div>
       </div>

@@ -7,8 +7,12 @@ import Cart from './features/cart/Cart';
 import SiteLayout from './features/layout/SiteLayout';
 import Signup from './features/users/signup/Signup';
 import Signin from './features/users/signin/Signin';
-import AdminLayout from './features/layout/AdminLayout';
 import { IsAdmin } from './utils/auth';
+import AdminLayout from './features/layout/AdminLayout';
+import { ToastContainer } from 'react-toastify';
+import List from './features/admin/products/list/List';
+import Update from './features/admin/products/update/Edit';
+import Add from './features/admin/products/add/Add';
 
 function App() {
   return (
@@ -22,9 +26,13 @@ function App() {
             <Route path='dang-nhap' element={<Signin />}/>
           </Route>
           <Route path='/admin' element={<AdminLayout />} >
-            <Route index element={<IsAdmin> <ProductsDetail/> </IsAdmin>}/>
+            <Route index element={<IsAdmin> <List /> </IsAdmin>}/>
+            <Route path='danh-sach' element={<IsAdmin> <List /> </IsAdmin>}/>
+            <Route path='them-moi' element={<IsAdmin> <Add /> </IsAdmin>}/>
+            <Route path='cap-nhat-san-pham/:id' element={<IsAdmin> <Update /> </IsAdmin>}/>
           </Route>
         </Routes>
+        <ToastContainer />
     </div>
   );
 }

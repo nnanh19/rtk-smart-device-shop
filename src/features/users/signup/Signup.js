@@ -1,15 +1,19 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { notify } from '../../../utils/toastr'
 import { fetchSignupAsync } from '../usersSlice'
 
 const Signup = () => {
 
   const {handleSubmit, register,formState: {errors} } = useForm() 
-
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const onSubmit = (data) => {
     dispatch(fetchSignupAsync(data))
+    notify('Đăng ký thành công!')
+    navigate('/dang-nhap')    
   }
 
   return (

@@ -14,14 +14,14 @@
     },
     {
       "id": 6,
-      "name": "Oppo IOSS",
+      "name": "Lenovo Laptop",
       "price": 12000,
       "promotion": 50,
       "categoryId": 2,
       "outstandingFeatures": "a",
       "longDescription": "bcd",
       "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
-      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109880/ahuaqqjenuo4kgw2q3w2.jpg",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659962274/uuqtwon2cmpfineby4wc.jpg",
       "status": true
     },
     {
@@ -38,59 +38,75 @@
     },
     {
       "id": 2,
-      "name": "Iphone Androi",
+      "name": "Laptop",
       "price": 12000,
       "promotion": 20,
       "categoryId": 2,
       "outstandingFeatures": "abcd",
       "longDescription": "babcd",
       "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
-      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109845/si4plnvugnsj1ytibejw.jpg",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659962499/m1bp9rdwiyis0ocmdyyu.jpg",
       "status": false
     },
     {
       "id": 7,
-      "name": "Poco IOSS",
-      "price": 100000,
+      "name": "Oppo",
+      "price": "100000",
       "promotion": 10,
       "categoryId": 1,
       "outstandingFeatures": "abcd",
       "longDescription": "abcd",
       "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
-      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109926/hokoxu7omx4gtxek77is.jpg",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659962544/jyclhovaps1azrrjdmjw.jpg",
       "status": true
     },
     {
       "id": 8,
-      "name": "Laptop Iphonn",
+      "name": "Laptop Lenovo",
       "price": 100000,
       "promotion": 10,
       "categoryId": 2,
       "outstandingFeatures": "abcd",
       "longDescription": "mô tả dài",
       "shortDescription": "mô tả ngắn",
-      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109897/oelaifcgahwyif5kpshb.jpg"
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659962253/topctdspqccljlm3mfh7.jpg",
+      "status": true
     },
     {
       "id": 9,
-      "name": "Điện thoại 19",
+      "name": "Pocco Gì đấy",
       "price": 10000000,
       "promotion": 10,
       "categoryId": 1,
       "outstandingFeatures": "Nổi bật",
       "longDescription": "Dài",
       "shortDescription": "Ngắn",
-      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109910/ahrn44jxhf50hluyd0cl.jpg"
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109910/ahrn44jxhf50hluyd0cl.jpg",
+      "status": true
     },
     {
       "id": 10,
-      "name": "Không được phân loại",
+      "name": "Iphone 2",
       "price": 100000,
       "promotion": 10,
       "categoryId": 1,
       "outstandingFeatures": "NỔI BẬT",
       "shortDescription": "MÔ TẢ NGẮN",
-      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109915/shsvqsqdkokpsvq17dlj.jpg"
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659109915/shsvqsqdkokpsvq17dlj.jpg",
+      "status": true,
+      "longDescription": "Dài"
+    },
+    {
+      "shortDescription": "Ngắn",
+      "name": "Iphone",
+      "price": "100000",
+      "promotion": "10",
+      "categoryId": "2",
+      "outstandingFeatures": "Bật",
+      "longDescription": "Mô tả dài",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1659960730/flmmixnxiivp4ebsartt.jpg",
+      "id": 11,
+      "status": true
     }
   ],
   "categories": [
@@ -109,6 +125,24 @@
       "password": "$2a$10$VSYQvwXUEwJTcQQZfx3S0O59vYYa7roYwTLFV0PWf8ScuCPJW4u9W",
       "phone": "0971145489",
       "id": 1
+    },
+    {
+      "email": "member@gmail.com",
+      "password": "$2a$10$Y7WoiS1CZMyAVi8NtuHmKebgRW7nwHi.91qzoYfZLODX3E.t52qg2",
+      "phone": "0123456789",
+      "id": 2
+    },
+    {
+      "email": "member1@gmail.com",
+      "password": "$2a$10$qpa61UyZFzmdWrEOXRdum.4knyGjce3PgZZCu98M09.0vw3TD3116",
+      "phone": "123456778",
+      "id": 3
+    },
+    {
+      "email": "member12@gmail.com",
+      "password": "$2a$10$bYD4ckl33zz6UnliBFLcyONBdl1UHOxTvckRH29RQVClWFQnc7JK6",
+      "phone": "123556678",
+      "id": 4
     }
   ]
 }

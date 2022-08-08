@@ -101,7 +101,7 @@
       "name": "Iphone",
       "price": "100000",
       "promotion": "10",
-      "categoryId": "2",
+      "categoryId": 2,
       "outstandingFeatures": "Bật",
       "longDescription": "Mô tả dài",
       "image": "http://res.cloudinary.com/ph-th/image/upload/v1659960730/flmmixnxiivp4ebsartt.jpg",

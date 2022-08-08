@@ -22,8 +22,8 @@ const ProductsDetail = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    dispatch(fetchSameProductsAsync(id))
-  }, [dispatch, id]) 
+    dispatch(fetchSameProductsAsync(product.categoryId))
+  }, [dispatch, product.categoryId]) 
 
 
   const handleAddToCart = (product) => {

@@ -26,8 +26,8 @@ function App() {
             <Route path='dang-nhap' element={<Signin />}/>
           </Route>
           <Route path='/admin' element={<AdminLayout />} >
-            <Route index element={<IsAdmin> <List /> </IsAdmin>}/>
-            <Route path='danh-sach' element={<IsAdmin> <List /> </IsAdmin>}/>
+            <Route index element={ <List /> }/>
+            <Route path='danh-sach' element={<List /> }/>
             <Route path='them-moi' element={<IsAdmin> <Add /> </IsAdmin>}/>
             <Route path='cap-nhat-san-pham/:id' element={<IsAdmin> <Update /> </IsAdmin>}/>
           </Route>

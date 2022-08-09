@@ -14,9 +14,7 @@ export const listProductManagerSelector = createSelector(
             product.name.includes(text)
             &&
             (Number(categoryId) ? product.categoryId === Number(categoryId) : list.products) 
-          
         )
-        
     });
   }
 );

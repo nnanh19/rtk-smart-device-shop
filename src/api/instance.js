@@ -1,6 +1,6 @@
 import axios from "axios"
 
 const instance = axios.create({
-    baseURL: 'https://my-json-server.typicode.com/nnanh19/rtk-smart-device-shop/'
+    baseURL: 'http://localhost:3001/'
 })
 export default instance

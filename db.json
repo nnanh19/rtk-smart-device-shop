@@ -22,7 +22,7 @@
       "longDescription": "bcd",
       "shortDescription": "[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ",
       "image": "http://res.cloudinary.com/ph-th/image/upload/v1659962274/uuqtwon2cmpfineby4wc.jpg",
-      "status": true
+      "status": false
     },
     {
       "id": 1,
@@ -98,7 +98,7 @@
     },
     {
       "shortDescription": "Ngắn",
-      "name": "Iphone",
+      "name": "Iphone 1",
       "price": "100000",
       "promotion": "10",
       "categoryId": 2,
@@ -107,6 +107,39 @@
       "image": "http://res.cloudinary.com/ph-th/image/upload/v1659960730/flmmixnxiivp4ebsartt.jpg",
       "id": 11,
       "status": true
+    },
+    {
+      "shortDescription": "",
+      "name": "Đồng hồ",
+      "price": "100000",
+      "promotion": "10",
+      "categoryId": "5",
+      "outstandingFeatures": "Nổi bật",
+      "longDescription": "",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1660008116/qgrzhqv7sq6iapxkqc62.jpg",
+      "id": 12
+    },
+    {
+      "shortDescription": "",
+      "name": "Đồng hồ Nat",
+      "price": "110000",
+      "promotion": "15",
+      "categoryId": "5",
+      "outstandingFeatures": "Nổi bật",
+      "longDescription": "",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1660008305/bnuvxu0oecyh72y42zmg.jpg",
+      "id": 13
+    },
+    {
+      "shortDescription": "Ngắn",
+      "name": "Đồng hồ Nat 2",
+      "price": "120000",
+      "promotion": "10",
+      "categoryId": "5",
+      "outstandingFeatures": "Nổi bật",
+      "longDescription": "Dài",
+      "image": "http://res.cloudinary.com/ph-th/image/upload/v1660008375/wmktrdxbhk87ynuw2psu.jpg",
+      "id": 14
     }
   ],
   "categories": [
@@ -117,6 +150,18 @@
     {
       "id": 2,
       "name": "Laptop"
+    },
+    {
+      "id": 3,
+      "name": "Máy tính bảng"
+    },
+    {
+      "id": 4,
+      "name": "Âm thanh"
+    },
+    {
+      "id": 5,
+      "name": "Đồng hồ"
     }
   ],
   "users": [

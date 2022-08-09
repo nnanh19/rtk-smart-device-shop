@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineShoppingCart, AiOutlineUserAdd, AiOutlineUser } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { BiMap } from "react-icons/bi";
@@ -8,7 +8,9 @@ import {useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { cartSelector } from "../../../cart/selector";
 import { VscSignIn, VscSignOut} from "react-icons/vsc";
-
+import { useDispatch } from "react-redux/es/exports";
+import { fetchProductsAsync } from "../../../home/products/productsSlice";
+import { productsSelector } from "../../../home/products/selectors";
 
 
 const Header = () => {
@@ -17,8 +19,11 @@ const Header = () => {
 
   const cart = useSelector(cartSelector)
 
+  const [products, setProducts] = useState(null)
+
   const user = JSON.parse(localStorage.getItem('user'))
 
+  const dispatch = useDispatch()
   
   const cartLength= cart.myCart.length
 
@@ -26,19 +31,38 @@ const Header = () => {
     localStorage.removeItem('user')
     navigate('/dang-nhap')
   }
+
   useEffect(() => {
-    
-  }, [])
+
+  })
+
+  const data = useSelector(productsSelector)
+  
+  console.log(products)
+  useEffect(() => {
+    dispatch(fetchProductsAsync())
+  }, [dispatch])
   
   const handleSearchChange = (e) => {
-    console.log(e.target.value);
+    if(e.target.value === ''){
+      setProducts(null)
+    }else{
+      const products = [...data.products].filter(product => product.name.includes(e.target.value))
+      setProducts(products)
+      
+    }
   }
+  const searchRef = useRef()
+  
   const handleSearchEnter = (e) => {
     if(e.keyCode === 13){
-      console.log(e.target.value);
+     
     }
   }
 
+
+
+  console.log(products)
   return (
     <div className="bg-[#D70018]">
       <div
@@ -65,13 +89,30 @@ const Header = () => {
           <div className="text-white">
             <ImSearch className="text-black font-bold ml-2"/>
           </div>
-          <input className="outline-none ml-2 w-[450px]" onKeyDown={(e) => handleSearchEnter(e)} onChange={(e) => handleSearchChange(e)}/>
+          <input ref={searchRef} className="outline-none ml-2 w-[450px]" onKeyDown={(e) => handleSearchEnter(e)} onChange={(e) => handleSearchChange(e)}/>
         </div>
-        {/* <div className="absolute top-[53px] ">
-          <div className="h-[500px] w-[500px] bg-white rounded-xl">
-
+        <div className="absolute top-[53px] left-[20.5%]">
+          {products && <div className="min-h-[200px] w-[500px] bg-white rounded-xl">
+            {products?.map(product => {
+              return (
+                <div key={product.id}>
+                  <div className="flex items-start p-5 space-x-3" onClick={() => {
+                    navigate('/chi-tiet-san-pham/'+product.id)
+                    setProducts(null)
+                    searchRef.current.value =''
+                  }}>
+                    <img className="w-20" src="http://res.cloudinary.com/ph-th/image/upload/v1659109915/shsvqsqdkokpsvq17dlj.jpg" alt="" />
+                    <div className="flex flex-col justify-between">
+                        <p className="font-semibold text-[21px] cursor-pointer">{product.name}</p>
+                        <p className="text-red-500 font-semibold text-[15px]">{product.price}</p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
-        </div> */}
+          }
+        </div>
         <div className="flex items-center gap-5">
           <div className="flex flex-col text-white">
             <p className="text-xs">Gọi mua hàng</p>

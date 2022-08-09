@@ -5,6 +5,9 @@ import { fetchProductDetailAsync, fetchSameProductsAsync } from "./productdetail
 import { productDetailSelector } from "./selectors";
 import { AiOutlineStar, AiOutlineShoppingCart } from "react-icons/ai";
 import { addToCart } from "../cart/cartSlice";
+import { numberFormat } from "../../utils/numberFormat";
+import { notify } from '../../../src/utils/toastr'
+
 
 const ProductsDetail = () => {
   const navigate = useNavigate();
@@ -29,6 +32,7 @@ const ProductsDetail = () => {
   const handleAddToCart = (product) => {
     dispatch(addToCart(product))
     navigate('/chi-tiet-san-pham/'+product.id)
+    notify('Thêm vào giỏ hàng thành công')
   }
 
   return (
@@ -38,9 +42,7 @@ const ProductsDetail = () => {
           <li onClick={() => navigate("/")} className="cursor-pointer">
             Trang chủ
           </li>
-          <li>Điện thoại</li>
-          <li>Sam sung</li>
-          <li>Sam sung x</li>
+    
         </ul>
       </div>
 
@@ -86,10 +88,10 @@ const ProductsDetail = () => {
           <div>
             <div className="">
               <span className="text-[#D70018] text-[24px]">
-                {product.price}đ
+                {numberFormat.format(product.price)}
               </span>
               <span className="text-[#707070] text-[14px] ml-5">
-                {product.price}đ
+              {numberFormat.format(product?.price * ((100 - product.promotion)/100))}
               </span>
             </div>
             <div>
@@ -117,7 +119,7 @@ const ProductsDetail = () => {
           <div className="flex gap-3">
             {sameProducts?.map(product => {
               return (
-                <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px]">
+                <div className="shadow-md shadow-grey-500/50 p-5 max-w-[230px] cursor-pointer" onClick={() => navigate('/chi-tiet-san-pham/'+product.id)}>
                     <div>
                       <img className="max-w-[160px]" src={product.image} alt="" />
                     </div>
@@ -126,10 +128,10 @@ const ProductsDetail = () => {
                     </div>
                     <div className="flex gap-2">
                       <span className="text-[14px] text-[#D70018]">
-                        {product.price}
+                        {numberFormat.format(product.price)}
                       </span>
                       <span className="text-[11px] text-[#707070]">
-                        {product.price}
+                        {numberFormat.format(product?.price * ((100 - product.promotion)/100))}
                       </span>
                     </div>
                 </div>
@@ -147,14 +149,27 @@ const ProductsDetail = () => {
           </div>
           <ul>
             <li className="text-[14px] text-[#444444] leading-[22px]">Camera chất lượng, bắt trọn từng khoảng khắc - Cụm 4 camera với cảm biến chính lên đến 108 MP</li>
-            <li className="text-[14px] text-[#444444] leading-[22px]">Camera chất lượng, bắt trọn từng khoảng khắc - Cụm 4 camera với cảm biến chính lên đến 108 MP</li>
-            <li className="text-[14px] text-[#444444] leading-[22px]">Camera chất lượng, bắt trọn từng khoảng khắc - Cụm 4 camera với cảm biến chính lên đến 108 MP</li>
-            <li className="text-[14px] text-[#444444] leading-[22px]">Camera chất lượng, bắt trọn từng khoảng khắc - Cụm 4 camera với cảm biến chính lên đến 108 MP</li>
-            <li className="text-[14px] text-[#444444] leading-[22px]">Camera chất lượng, bắt trọn từng khoảng khắc - Cụm 4 camera với cảm biến chính lên đến 108 MP</li>
-            <li className="text-[14px] text-[#444444] leading-[22px]">Camera chất lượng, bắt trọn từng khoảng khắc - Cụm 4 camera với cảm biến chính lên đến 108 MP</li>
+            <li className="text-[14px] text-[#444444] leading-[22px]">Thưởng thức không gian giải trí cực đỉnh - Màn hình lớn 6.7 inch, độ phân giải Full HD+, 120Hz mượt mà</li>
+            <li className="text-[14px] text-[#444444] leading-[22px]">Cấu hình Galaxy A73 5G được nâng cấp mạnh với chip Snapdragon 778G, RAM lên đến 8 GB</li>
+            <li className="text-[14px] text-[#444444] leading-[22px]">Chiến game thoải mái không lo gián đoạn - Viên pin lớn 5000 mAh, hỗ trợ sạc nhanh 25 W</li>
           </ul>
         </div>
-
+        <div>
+          <p className="text-[15px]">Năm 2022 hứa hẹn sẽ là một năm rất đáng trông đợi đối với những ai là fan của thương hiệu điện thoại Samsung. Mới đây, hãng sẽ tiếp tục cho ra mắt nhiều smartphone với sự cải tiến trong thiết kế và cấu hình, trong đó phải kể đến chiếc Samsung Galaxy A73 với nhiều cải tiến so với thế hệ trước. Vậy sản phẩm có gì nổi bật, giá bao nhiêu và liệu có nên mua không? Tìm hiểu ngay nhé!</p>
+          <div>
+            <h3 className="text-[21px] font-semibold">Đánh giá Samsung A73 - Hiệu năng mượt mà, chụp ảnh chuyên nghiệp</h3>
+            <p>Điện thoại cao cấp nhất dòng Galaxy A series sở hữu nhiều nâng cấp đáng giá so với thế hệ trước, từ ngoại hình cho đến hiệu năng, đặc biệt là hệ thống camera. Sau đây là những đánh giá chi tiết về chiếc</p>
+          </div>
+          <div>
+            <h4 className="text-[18px] font-semibold">Thiết kế sang trọng, màn hình Super AMOLED</h4>
+            <p className="text-[15px]">Samsung Galaxy A73 được thiết kế gọn nhẹ với tiêu chí đáp ứng khả năng mang theo để tiện đi lại cho người dùng. Giờ đây, bạn có thể mang theo chiếc smartphone bên cạnh đến bất cứ đâu, bất cứ lúc nào. <br/>Kích thước và trọng lượng của chiếc điện thoại rất vừa phải và dĩ nhiên sẽ không chiếm quá nhiều diện tích trong túi xách và có thể di chuyển dễ dàng.</p>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-[330px] h-[30px] border border-black text-center rounded-lg ">
+          <span className="text-[#000000] text-[14px]">Xem thêm</span>
+        </div>
       </div>
     </div>
   );

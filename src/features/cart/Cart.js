@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSelector } from "./selector";
 import { decreaseCart, increaseCart, removeCart  } from "./cartSlice";
+import { numberFormat } from "../../utils/numberFormat";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -61,10 +62,10 @@ const Cart = () => {
                   </div>
                   <div className="space-x-2">
                     <span className="text-[15px] text-[#D70018] ">
-                      {cart.price}
+                      {numberFormat.format(cart.price)}
                     </span>
                     <span className="text-[#777777]  text-[14px]">
-                      {cart.price}
+                      {numberFormat.format(cart?.price * ((100 - cart.promotion)/100))}
                     </span>
                     <span className="bg-red-600 text-white rounded-[5px] text-[12px] p-[4px]">
                     Giảm {cart.promotion} %
@@ -104,7 +105,7 @@ const Cart = () => {
       <div  className="space-y-3">
         <div className="flex justify-between">
           <span className="text-[#0E2431] text-[16px]">Tổng tiền tạm tính</span>
-          <span className="text-[#D70018] text-[16px]">{cart.temporaryTotal}</span>
+          <span className="text-[#D70018] text-[16px]">{numberFormat.format(cart.temporaryTotal)}</span>
         </div>
         <div className="space-y-3">
           <button className="bg-[#D70018] text-[16px] text-white rounded-md w-[515px] h-[60px] ">Tiến hành đặt hàng</button>

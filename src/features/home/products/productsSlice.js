@@ -5,6 +5,10 @@ const initialState = {
     products: [],
     status: 'idle',
     more: true,
+    filters: {
+        categoryId: null,
+        search: ''
+    }
 }
 export const fetchProductsAsync = createAsyncThunk(
     'products/fetchProducts',
@@ -21,6 +25,9 @@ const productSlice = createSlice({
         setMore: (state) => {
             state.more = !state.more
         },
+        setSearchText: (state, action) => {
+            state.filters.search = action.payload
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -34,6 +41,6 @@ const productSlice = createSlice({
     }
 })
 
-export const  {setMore} = productSlice.actions
+export const  {setMore, setSearchText} = productSlice.actions
 
 export default productSlice.reducer

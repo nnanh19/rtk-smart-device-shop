@@ -7,9 +7,11 @@ import { fetchCategories } from '../../categories/categoriesManagerSlice'
 import { notify } from '../../../../utils/toastr'
 import axios from 'axios'
 import { fetchCreateProductAsync } from '../productsManagerSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Add = () => {
 
+  const navigate = useNavigate()
   const {register, handleSubmit, formState: {errors}} = useForm()
 
   const [imgSrc, setImgSrc] = useState('')
@@ -19,6 +21,8 @@ const Add = () => {
   const onSubmit = (data) => {
     if(imgSrc){
       dispatch(fetchCreateProductAsync({...data,image:imgSrc}))
+      notify('Thêm thành công!')
+      navigate('/admin/danh-sach')
     }else{
       imgRef.current.click()
     }
